@@ -1,6 +1,7 @@
 
 # javascript 跨域学习
 ## 1. Cross Origin Resource Sharing(CORS) 跨域资源共享
+(见项目cors文件夹)
 ### 兼容性:
     IE 8 +
     Firefox 15.0 +
@@ -96,7 +97,7 @@ router.post('/', function(req, res) {
 module.exports = router;
 ```
 ## 2. Cross Document Messaging 跨文档消息传输
-
+(见项目postmessage文件夹)
 ### 兼容性:
     IE 8 +
     Firefox 3.0 +
@@ -159,7 +160,7 @@ module.exports = router;
 ```
 
 ## 3. 使用window.name解决跨域问题
-
+(见项目name文件夹)
 ### 兼容性:
     几乎所有浏览器都支持
 
@@ -239,7 +240,7 @@ module.exports = router;
 ```
 
 ## 4. jsonp
-
+(见项目jsonp文件夹)
 ### 兼容性:
     几乎所有浏览器都支持
 
@@ -300,7 +301,7 @@ module.exports = router;
 ```
 
 ## 5. Websocket
-
+(见项目websocket文件夹)
 ### 兼容性:
     Chrome 4+
     Firefox 4+
@@ -309,7 +310,7 @@ module.exports = router;
     Safari 5+
 
 ### 实现手段:
-    HTML5的websocket协议, 至今多数服务端都已支持websocket
+    HTML5的websocket协议, 至今多数服务端都已支持websocket, 样例使用nodejs来实现, 同时在客户端和服务端使用了socket.io库
 
 ### 评价:
     websocket实际上应该是作为全双工连接最标准的实现方式, 因此可以用到跨域问题上, 奈何其兼容性不够好
@@ -366,4 +367,4 @@ http.listen(3000, function() {
   console.log('listening on *:3000');
 });
 ```
-    
+## 6. 还有诸如服务器代理, flash, location.hash等跨域方法, 前两者因为非javascript手段还没去尝试, 后者适用性比其它要差很多, 数据受url长度限制, 实现方法比较绕等
