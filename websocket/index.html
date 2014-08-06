@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO</title>
+  </head>
+  <body>
+    <h2 id="p"></h2>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      function $(str) { return document.getElementById(str); }
+      function show(str) { p.innerHTML = str; }
+      function callback(data) {
+        data = JSON.parse(data);
+        show(data.name + ' is at age ' + data.age);
+      }
+      var p = $('p'), socket = io();
+      window.onload = function() {
+        socket.emit('getData');
+      }
+      socket.on('data', callback);
+    </script>
+  </body>
+</html>

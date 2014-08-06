@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="ye">
+  </div>
+  <script>
+    window.onload = function() {
+      function createXHR() {
+        if(window.XDomainRequest) {
+          return new XDomainRequest();
+        }
+        else if(window.XMLHttpRequest) {
+          return new XMLHttpRequest();
+        }
+        else if(window.ActiveXObject) {
+          return new ActiveXObject('Microsoft.XMLHTTP');
+        }
+        else {
+          throw new Error('no xhr');
+        }
+      }
+      function parse() {
+        if(window.JSON) {
+          var x = JSON.parse(xhr.responseText);
+          document.getElementById('ye').innerHTML = x.name;
+        } else {
+          document.getElementById('ye').innerHTML = xhr.responseText;
+        }
+      }
+      var xhr = createXHR();
+      var url = 'http://localhost:3000';
+      xhr.open("post", url, true);
+      xhr.onreadystatechange = function() {
+        if(xhr.readyState === 4) {
+          parse();
+        }
+      }
+      if(window.XDomainRequest) {
+        xhr.onload = parse;
+      }
+      xhr.send('data=hehe');
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick='getInfo()'>获取数据</button>
+  <p id='text'></p>
+  <script>
+    function getInfo() {
+      var iframe = document.createElement('iframe'),
+        bl = true;
+      iframe.style.display = 'none';
+      iframe.onload = function() {
+        if(bl) {
+          iframe.contentWindow.location = './proxy.html?callback=callback';
+          bl = false;
+        }
+      }
+      iframe.src = 'http://localhost:3000';
+      document.body.appendChild(iframe);
+    }
+    function callback(data) {
+      document.getElementById('text').innerHTML = data;
+    }
+  </script>
+</body>
+</html>

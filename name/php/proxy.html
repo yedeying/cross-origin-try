@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var callback = location.search.split('=')[1];
+    window.parent[callback](window.name);
+  </script>
+</body>
+</html>

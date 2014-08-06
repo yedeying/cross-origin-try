@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="ye"></div>
+  <script>
+    function callback(data) {
+      if(data) {
+        document.getElementById('ye').innerHTML = data.name + ' is at age ' + data.age;
+      }
+    }
+    window.onload = function() {
+      var scr = document.createElement('script');
+      document.body.appendChild(scr);
+      scr.src = 'http://localhost/ye/jsonp/data.php?callback=callback';
+    };
+  </script>
+</body>
+</html>

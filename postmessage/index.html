@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="handler()">发信</button>
+  <input id="value" type="text" placeholder="请输入信息">
+  <iframe src="./frame.html" frameborder="0" width="100%" height="100%"></iframe>
+  <script>
+    var input = document.querySelector('#value');
+    function handler() {
+      document.querySelector('iframe').contentWindow.postMessage(input.value, '*');
+    }
+  </script>
+</body>
+</html>
