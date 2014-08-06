@@ -367,4 +367,7 @@ http.listen(3000, function() {
   console.log('listening on *:3000');
 });
 ```
-## 6. 还有诸如服务器代理, flash, location.hash等跨域方法, 前两者因为非javascript手段还没去尝试, 后者适用性比其它要差很多, 数据受url长度限制, 实现方法比较绕等
+## 6. 其它
+```
+还有诸如服务器代理, flash, location.hash等跨域方法, 前两者因为非javascript手段还没去尝试, 后者适用性比其它要差很多, 数据受url长度限制, 实现方法比较绕等
+```
